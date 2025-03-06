@@ -160,6 +160,7 @@ def solve_graph(k=5):
         state = stack.pop()
         if state in visited:
             continue
+        visited.add(state)
 
         # if loss, all parent nodes can force a win.
         # if win, increment the winning_children counter for all parents
@@ -177,7 +178,6 @@ def solve_graph(k=5):
                         stack.append(p)
         else:
             print("Error, we shouldn't be exploring a draw node!")
-        visited.add(state)
     return state_lookup
 
 
